@@ -1,0 +1,179 @@
+					case "COP2PA":
+						obj.xian_liang_dui = vo[k].value;
+						break;
+					case "COP3KI":
+						obj.xian_san_tiao = vo[k].value;
+						break;
+					case "COB2PA":
+						obj.zhuang_liang_dui = vo[k].value;
+						break;
+					case "COB3KI":
+						obj.zhuang_san_tiao = vo[k].value;
+						break;
+					case "COBANK":
+						obj.zhuang = vo[k].value;
+						break;
+					case "CODEAL":
+						obj.xian = vo[k].value;
+						break;
+					
+					case "xian_liang_dui":
+						obj.COP2PA = {};
+						obj.COP2PA.value = vo[k];
+						break;
+					case "xian_san_tiao":
+						obj.COP3KI = {};
+						obj.COP3KI.value = vo[k];
+						break;
+					case "zhuang_liang_dui":
+						obj.COB2PA = {};
+						obj.COB2PA.value = vo[k];
+						break;
+					case "zhuang_san_tiao":
+						obj.COB3KI = {};
+						obj.COB3KI.value = vo[k];
+						break;
+					case "zhuang":
+						obj.COBANK = {};
+						obj.COBANK.value = vo[k];
+						break;
+					case "xian":
+						obj.CODEAL = {};
+						obj.CODEAL.value = vo[k];
+						break;
+				}
+
+
+
+
+
+
+package helios.assets.nets
+{
+	import flash.events.Event;
+	
+	public class NetEvent extends Event
+	{
+		public static var LOGIN:String="login";//登入。。。。
+		public static var DESK_DATAS:String="desk_list";//游戏桌列表。。。
+		public static var GAME_ENTER:String="enter_desk";//进入百家乐。。
+		public static var LOGIN_OUT:String="logout";//退出。。。。
+		public static var BET_LIMIT:String="member_bet_addition";//用户限红。。。
+		public static var DESK_MEMBERS:String="desk_members";//本人入桌子,所有玩家列表。。。。。
+		public static var DESK_MEMBER_LOGIN:String="member_login_desk";//百家乐。。新用户进入。。。
+		public static var DESK_INFO:String="desk_info";//游戏桌数据。。。
+		public static var BET_START:String="baijiale_start_bet";//下注开始。。。。
+		public static var BET_STOP:String="stop_bet";//下注停止。。。。
+		public static var SEND_ONE_CARD:String="baijiale_send_card";//发单张牌了。。。。。
+		public static var BAIJIALE_RESULT:String="baijiale_inning_result";//游戏结果。。。。。
+		public static var BAIJIALE_DESK_RESULT:String="baijiale_desk_result_history";//B/P/T    num...
+		public static var BAIJIALE_BET:String="baijiale_bet";//bet....
+		public static var MONEY_POOL:String="baijiale_bet_summary";//即時彩池。。。。
+		public static var MEMBER_EXIT_DESK:String="member_exit_desk";//玩家退出桌子協議。。。。。
+		public static var FORCE_EXIT_DESK:String="force_member_exit_desk";//强制玩家退出桌子協議多局为下注。。。。。
+		public static var FORCE_ZIXUAN_EXIT_DESK:String="force_member_zixuan_exit_desk";//自选多合一桌子多局为下注協議。。。。。
+		public static var FORCE_EXIT:String="force_exit";//强制玩家退出桌子協議重复登陆。。。。。
+		public static var USER_INFO:String="member_info";//请求用户信息。。。
+		public static var ROAD_MAP_REFRESH:String="baijiale_paper_path";//路纸结果更新。。。
+		public static var ROAD_LONGHU_MAP_REFRESH:String="longhu_paper_path";//路纸结果更新。。。
+		public static var REQUEST_EXIT_DESK:String="exit_desk";//主动请求退桌子。。
+		public static var BAIJIALE_RESULT_OPEN:String="baijiale_open_card";//
+		public static var BAIJIALE_SET_TAX:String="baijiale_set_tax";//设置免水否。。。
+		public static var BAIJIALE_MIPAI:String="baijiale_mipai";//百家乐眯牌。。。
+		public static var BAIJIALE_MIPAI_MEMBER:String="miapi_member";//百家乐成员。。
+		public static var BAIJIALE_MIPAI_BEGIN:String="mipai_member_final";//开始眯牌。。。
+		public static var MEMBER_BET:String="member_bet";//其他玩家下注。。
+		public static var PUSH_OUT_MEMBER:String = "push_out_member"
+		
+		public static var LONGHU_BET_START:String="longhu_start_bet";//龙虎开始下注。。
+		public static var LONGHU_BET_COUNT:String="longhu_desk_result_history";//龙虎。庄闲和次数。。
+		public static var LONGHU_SEND_CARD:String="longhu_send_card";//龙虎发牌。。。
+		public static var LONGHU_OPEN_CARD:String="longhu_open_card";//龙虎掀牌。。
+		public static var LONGHU_RESULT:String="longhu_inning_result";//	结果
+		public static var LONGHU_MONEY_POOL:String="longhu_bet_summary";//龙虎下注总额推送
+		public static var LONGHU_BET:String="longhu_bet";//龙虎下注。。。
+		public static var LONGHU_ENTER:String="longhu_enter";//龙虎进桌。。。
+		
+		public static var SHAIBAO_BET_START:String="shaibao_start_bet";//骰宝开始下注。。
+		public static var SHAIBAO_BET_COUNT:String="shaibao_desk_result_history";//骰宝历史结果推送。
+		public static var SHAIBAO_SEND_CARD:String="shaibao_send_cards";//骰宝发牌。。
+		public static var SHAIBAO_RESULT:String="shaibao_inning_result";//骰宝结果
+		public static var SHAIBAO_MONEY_POOL:String="shaibao_bet_summary";//骰宝下注总额推送
+		public static var SHAIBAO_BET:String="shaibao_bet";//骰宝下注。。。
+		
+		public static const PASSWORD:String = "password";//修改密码
+		public static const UPDATA_MEMBER_NICKNAME:String = "update_member_nickname";//修改名字
+		public static const UPDATA_MEMBER_PIC:String = "update_member_pic";//修改头像
+		
+		
+		public static const douniu_start_bet:String = "douniu_start_bet";//斗牛开始下注
+		public static const douniu_desk_result_history:String = "douniu_desk_result_history";//斗牛历史结果推送
+		public static const douniu_send_card:String = "douniu_send_card";//斗牛发牌
+		public static const douniu_rearrange_cards:String = "douniu_rearrange_cards";//斗牛挪牌
+		public static const douniu_inning_result:String = "douniu_inning_result";//斗牛通知结果
+		public static const douniu_bet:String = "douniu_bet"; //斗牛下注
+		public static const douniu_bet_summary:String = "douniu_bet_summary";
+		public static const  douniu_paper_path:String ="douniu_paper_path";
+
+		public static var QUEJIU_BET_START:String="quejiu_start_bet";//雀九开始下注。。
+		public static var QUEJIU_BET_COUNT:String="quejiu_desk_result_history";//雀九历史结果推送。
+		public static var QUEJIU_SEND_CARD:String="quejiu_send_mahjong";//雀九发牌。。
+		public static var QUEJIU_RESULT:String="quejiu_inning_result";//雀九结果
+		public static var QUEJIU_MONEY_POOL:String="quejiu_bet_summary";//雀九下注总额推送
+		public static var QUEJIU_BET:String="quejiu_bet";//雀九下注。。。
+		public static var QUEJIU_SEND_DICES:String="quejiu_send_dices";//雀九投骰。
+		
+		
+		public static var SANGONG_BET_START:String="sangong_start_bet";//三公开始下注。。
+		public static var SANGONG_BET_COUNT:String="sangong_desk_result_history";//三公历史结果推送。
+		public static var SANGONG_SEND_CARD:String="sangong_open_card";//三公发牌。。
+		public static var SANGONG_RESULT:String="sangong_inning_result";//三公结果
+		public static var SANGONG_MONEY_POOL:String="sangong_bet_summary";//三公下注总额推送
+		public static var SANGONG_BET:String="sangong_bet";//三公下注。。。
+		public static var SANGONG_SET_ZHUANG_MEN:String="sangong_set_zhuang_men";//三公设置庄门。
+		
+		
+		public static const lunpan_start_bet:String = "lunpan_start_bet";//轮盘开始下注
+		public static const  lunpan_desk_result_history:String = "lunpan_desk_result_history";//轮盘历史结果推送
+		static public const lunpan_send_ball_toss:String = "lunpan_send_ball_toss";//轮盘抛球
+		static public const lunpan_inning_result:String = "lunpan_inning_result";//轮盘通知结果
+		static public const lunpan_bet:String = "lunpan_bet";//轮盘下注
+		static public const lunpan_bet_summary:String = "lunpan_bet_summary";//轮盘即时彩池
+		
+		
+		public static var ZIXUAN_ENTER_DESK:String = "zixuan_enter_desk" //自选多合一进桌
+		public static var ZIXUAN_EXIT_DESK:String = "zixuan_exit_desk" //自选多合一退桌
+		public static var ZIXUAN_EXCHANGE_DESK:String = "zixuan_exchange_desk"//自选多合一换桌
+		
+		public static var DESK_COUNT_DOWN:String="count_down";
+		
+		
+		public static const BATCH_COUNT_DOWN:String = "batch_count_down"
+		static public const jack_pot:String = "jack_pot";//jackpot数据推送
+		public static const JACK_POT_BET:String = "jack_pot_bet";//jackpot下注
+		
+		public static const MEMBER_REPORT:String = "member_report"//会员报表
+		public static const WIN_LOSE_REPORT:String = "win_lose_report";//输赢历史记录
+		
+		public static const CLEAR_BET:String = "clear_bet";
+		
+		public function NetEvent(type:String, bubbles:Boolean=false, cancelable:Boolean=false)
+		{
+			super(type, bubbles, cancelable);
+		}
+	}
+}
+
+
+CustomerSocket.getMy().sendMessage(NetEvent.SANGONG_SET_ZHUANG_MEN,{desk_id:_gameData.id,zhuang_men:"xian_"+TkBetTable(this._betArea.betTable)._bankerNum})
+						
+
+
+
+
+
+
+
+
+
+

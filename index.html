@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Sunbet-Game</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <link rel="apple-touch-icon" href="./static/apple-touch-icon.png">
+</head>
+<style id="static-loading-wrapper-styles">
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+  }
+
+  body>.static-loading-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1);
+  }
+
+  body>.static-loading-wrapper::before {
+    content: '';
+    background: url('./static/loading-icon.png') no-repeat center;
+    background-size: 100% 100%;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    top: -36px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    animation: static-loading-wrapper-loader-rotate 0.7s linear infinite;
+  }
+
+  body>.static-loading-wrapper::after {
+    content: 'Loading...';
+    position: fixed;
+    color: #fff;
+    font-family: 'NotoSans-Light, NotoSans-Light-Edge, Arial, Helvetica, sans-serif';
+    font-size: 16px;
+    width: 100%;
+    height: 16px;
+    top: 70px;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+  }
+
+  body:lang(zh-TW)>.static-loading-wrapper::after {
+    content: '載入中';
+  }
+
+  body:lang(zh-CN)>.static-loading-wrapper::after {
+    content: '载入中';
+  }
+
+  body:lang(ja-JP)>.static-loading-wrapper::after {
+    content: 'ローディング…';
+  }
+
+  body:lang(ko-KR)>.static-loading-wrapper::after {
+    content: '로딩 중';
+  }
+
+  body:lang(id-ID)>.static-loading-wrapper::after {
+    content: 'Pemuatan...';
+  }
+
+  @keyframes static-loading-wrapper-loader-rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @-webkit-keyframes static-loading-wrapper-loader-rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+</style>
+
+<body>
+  <div id="static-loading-wrapper" class="static-loading-wrapper"></div>
+  <div id="app"></div>
+
+  <!-- built files will be auto injected -->
+</body>
+
+</html>
+<script>
+
+</script>
