@@ -1,91 +1,81 @@
 /* eslint-disable */
 <template>
-  <div class="_2YHZU "
-       :style="fontsize">
-    <div class="_1r2Sz"
-         :style="sc_heigh?'margin: auto 0px':'margin: 0px auto '">
+  <div class="_2YHZU" :style="fontsize">
+    <div class="_1r2Sz" :style="sc_heigh?'margin: auto 0px':'margin: 0px auto '">
       <div class="_1nOVm">
         <div class="_2Xdic content">
           <!-- 地址栏 -->
           <navbar></navbar>
           <!-- logo -->
-          <tubiao v-if='page=="GGBAR"||page=="EGAME"||page=="CHESSGAME" ?true:false'
-                  :class='page=="EGAME" ?"_3ghEJ": page=="CHESSGAME" ?"zlerm":""'></tubiao>
+          <tubiao
+            v-if="page=='GGBAR' || page=='EGAME'|| page=='CHESSGAME'"
+            :class="page=='EGAME' ? '_3ghEJ' : page=='CHESSGAME' ? 'zlerm' : ''"
+          ></tubiao>
           <!-- 图片 -->
-          <shouye v-if='page=="GGBAR" ?true:false'></shouye>
-          <baijiale v-if='page=="GAME" ?true:false'
-                    :key="menuKey"> </baijiale>
+          <shouye v-if="page=='GGBAR'"></shouye>
+          <baijiale v-if="page=='GAME'" :key="menuKey"></baijiale>
           <!-- 游戏大厅 -->
-          <lun-pan-game v-if='page=="LUNPANGAME" ?true:false'
-                        :key="menuKey1"></lun-pan-game>
-          <shai-bao-game v-if='page=="SHAIBAOGAME" ?true:false'
-                         :key="menuKey2"></shai-bao-game>
-          <que-jiu v-if='page=="QUEJIU" ?true:false'
-                   :key="menuKey3"></que-jiu>
-          <san-gong v-if='page=="SANGONG" ?true:false'
-                    :key="menuKey4"></san-gong>
-          <dou-niu v-if='page=="DOUNIU" ?true:false'
-                   :key="menuKey5"></dou-niu>
+          <lun-pan-game v-if="page=='LUNPANGAME'" :key="menuKey1"></lun-pan-game>
+          <shai-bao-game v-if="page=='SHAIBAOGAME'" :key="menuKey2"></shai-bao-game>
+          <que-jiu v-if="page=='QUEJIU'" :key="menuKey3"></que-jiu>
+          <san-gong v-if="page=='SANGONG'" :key="menuKey4"></san-gong>
+          <dou-niu v-if="page=='DOUNIU'" :key="menuKey5"></dou-niu>
           <!-- 左边 -->
-          <left-part v-if='page=="GAMEHALL" ?true:false'></left-part>
+          <left-part v-if="page=='GAMEHALL'"></left-part>
           <!-- middle -->
-          <middle-part v-if='page=="GAMEHALL" ?true:false'></middle-part>
+          <middle-part v-if="page=='GAMEHALL'"></middle-part>
           <!-- RIGHT -->
-          <right-part v-if='page=="DOUNIU"||page=="SANGONG"||page=="QUEJIU"||page=="GAMEHALL" ||page=="GAME"||page=="LUNPANGAME"||page=="SHAIBAOGAME"?true:false'></right-part>
+          <right-part
+            v-if="page=='DOUNIU' || page=='SANGONG' || page=='QUEJIU' || page=='GAMEHALL' || page=='GAME' || page=='LUNPANGAME' || page=='SHAIBAOGAME'"
+          ></right-part>
           <!-- 电子游戏 -->
-          <egame v-if='page=="EGAME"?true:false'></egame>
+          <egame v-if="page=='EGAME'"></egame>
           <!-- 棋牌游戏 -->
-          <chess-game v-if='page=="CHESSGAME"?true:false'></chess-game>
+          <chess-game v-if="page=='CHESSGAME'"></chess-game>
         </div>
         <!-- all-game -->
-        <all-game v-if='isshow'> </all-game>
-        <ga v-if='page=="GAMEHALL" || page=="LUNPANGAME" ||page=="SHAIBAOGAME"||page=="QUEJIU"|| page=="SANGONG"||page=="DOUNIU"?true:false'
-            :class='page=="LUNPANGAME"||page=="SHAIBAOGAME"||page=="QUEJIU"  || page=="SANGONG"||page=="DOUNIU"?"HpOvA":""'></ga>
+        <all-game v-if="isshow"></all-game>
+        <ga
+          v-if="page=='GAMEHALL' || page=='LUNPANGAME' || page=='SHAIBAOGAME' || page=='QUEJIU' || page=='SANGONG' || page=='DOUNIU'"
+          :class="page=='LUNPANGAME' || page=='SHAIBAOGAME' || page=='QUEJIU' || page=='ANGONG'|| page=='DOUNIU'? 'HpOvA' : ''"
+        ></ga>
         <!--  -->
-        <game-ga v-if='page=="GAME" ?true:false'></game-ga>
+        <game-ga v-if="page=='GAME'"></game-ga>
         <!-- 最下面 -->
         <game-bottom></game-bottom>
         <!-- 提升框 -->
-        <second-notice v-if='firstnoticed'></second-notice>
+        <second-notice v-if="firstnoticed"></second-notice>
         <!-- 所有的筹码 -->
         <all-chip v-if="isShowChip"></all-chip>
-        <first-notice v-if='firstnoticed'></first-notice>
-        <third-notice v-if='firstnoticed'></third-notice>
+        <first-notice v-if="firstnoticed"></first-notice>
+        <third-notice v-if="firstnoticed"></third-notice>
         <!-- 弹框 -->
         <!-- 历史记录 -->
-        <history v-if='historyShow=="HISTORY"?true:false'></history>
+        <history v-if="historyShow=='HISTORY'"></history>
         <!-- 会员报表 -->
-        <report v-if='historyShow=="REPOART"?true:false'></report>
+        <report v-if="historyShow=='REPOART'"></report>
         <!-- app下载 -->
-        <app-down v-if='historyShow=="APPDOWN"?true:false'> </app-down>
+        <app-down v-if="historyShow=='APPDOWN'"></app-down>
         <!-- hotline -->
-        <hot-line v-if='historyShow=="HOTLINE"?true:false'></hot-line>
+        <hot-line v-if="historyShow=='HOTLINE'"></hot-line>
         <!-- jackport -->
-        <jack-port v-if='historyShow=="JACKPORT"?true:false'> </jack-port>
+        <jack-port v-if="historyShow=='JACKPORT'"></jack-port>
         <!-- jackport -->
-        <deals v-if='historyShow=="DEAL"?true:false'></deals>
+        <deals v-if="historyShow=='DEAL'"></deals>
         <!-- jackport -->
-        <setting v-if='historyShow=="SETTING"?true:false'></setting>
-
-        <div class="_1161h"
-             v-show='memberOut'>
+        <setting v-if="historyShow=='SETTING'"></setting>
+        <div class="_1161h" v-show="memberOut">
           <span class="_3bMEo">系统讯息</span>
           <div class="_1WDT_">
             <div class="_24ZxC">
               <div class="_5FuCL"></div>
             </div>
-            <div class="lMqZp">
-              {{outText}}
-            </div>
-            <div class="_2V2XI"
-                 @click='Out()'>
-              确定
-            </div>
+            <div class="lMqZp">{{outText}}</div>
+            <div class="_2V2XI" @click="Out()">确定</div>
           </div>
         </div>
         <!-- 请稍后 -->
-        <div class="_1QOq_"
-             v-if='!ready'>
+        <div class="_1QOq_" v-if="!ready">
           <div class="_1_pu1 _2oKxh"></div>
         </div>
       </div>
@@ -115,10 +105,8 @@ import AppDown from './appdown'
 import HotLine from './hotline'
 import JackPort from './jackport'
 import Deals from './deals'
-
 import Baijiale from './togame/baijiale'
 import GameGa from './togame/gamega'
-
 import LunPanGame from './togame/lunpangame'
 import ShaiBaoGame from './togame/shaibaogame'
 import QueJiu from './togame/quejiugame'
@@ -191,11 +179,8 @@ export default {
       }
       // console.log('屏幕宽', val)
     },
-    Out: function () {
-
-    }
+    Out: function () {}
   },
-
   mounted () {
     // 连上websocket
     this.global.socketServer()
@@ -209,7 +194,6 @@ export default {
       _this.screenWidth = document.documentElement.clientWidth // 窗口宽度
       _this.screenHeight = document.documentElement.clientHeight // 窗口高度
     }
-
     // window.onbeforeunload= function (e) {
     //   _this.Out()
     // }
@@ -262,25 +246,25 @@ export default {
     '$store.state.page': function () {
       // 已经登录
       this.page = this.$store.state.page
-      if (this.page == 'LUNPANGAME') {
+      if (this.page === 'LUNPANGAME') {
         ++this.menuKey1
       }
-      if (this.page == 'SHAIBAOGAME') {
+      if (this.page === 'SHAIBAOGAME') {
         ++this.menuKey2
       }
-      if (this.page == 'GAME') {
+      if (this.page === 'GAME') {
         ++this.menuKey
       }
-      if (this.page == 'QUEJIU') {
+      if (this.page === 'QUEJIU') {
         ++this.menuKey3
       }
-      if (this.page == 'SANGONG') {
+      if (this.page === 'SANGONG') {
         ++this.menuKey4
       }
-      if (this.page == 'DOUNIU') {
+      if (this.page === 'DOUNIU') {
         ++this.menuKey5
       }
-      if (this.page == 'GGBAR') {
+      if (this.page === 'GGBAR') {
         document.body.removeChild(document.getElementById('static-loading-wrapper'))
       }
       console.log('ready', this.page)
@@ -291,6 +275,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 @import "../assets/style/main.css";
 ._2iR9R:not(._13Nrp) {

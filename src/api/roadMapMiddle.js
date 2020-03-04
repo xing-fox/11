@@ -515,7 +515,7 @@ function drawImage (a_context, jsonarray, table_size, icon_size, roadmaps, b_con
           v = row_array[len - 2].length;
         }
         c = row_array[len].length;
-        // 
+        //
         if (k == v && row == 0) {
           type = 11;
         } else if (k != v && row > 0) {
@@ -920,4 +920,4 @@ var paintingTypefaceJson = {
   "24": {
     "col": 54, "row": 0
   }
-};	
+}
