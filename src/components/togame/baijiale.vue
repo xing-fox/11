@@ -9257,7 +9257,7 @@ right: -0.5em;
   left: 1.17em;
 }
 ._3HbRu {
-  z-index: 2;
+  z-index: 10;
 }
 ._3FjDG {
   position: absolute;
@@ -9292,6 +9292,7 @@ right: -0.5em;
   bottom: -1.01em;
   width: 10.88em;
   height: 5.01em;
+  z-index: 1;
 }
 ._3e7k5 ._13xDd {
   bottom: 0;

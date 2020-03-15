@@ -378,6 +378,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 ._173V6 {
   -ms-flex-direction: column;

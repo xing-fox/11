@@ -1,10 +1,9 @@
 /* eslint-disable */
 
-var host = window.location.host
 var ht = location.protocol
 var wsServer
-if (host == "www.hnjhtc.cn" && ht == 'https:') {
-  wsServer = "wss://www.77dvg.com:8088"
+if (ht == 'https:') {
+  wsServer = "wss://www.66fbr.net:8088"
 } else {
   wsServer = 'ws://45.126.123.196:8081'
 }
@@ -12,10 +11,10 @@ if (host == "www.hnjhtc.cn" && ht == 'https:') {
 //var wsServer = 'wss://45.119.63.244:8081' // 服务器地址
 var websocket // = new WebSocket(wsServer); //创建WebSocket对象
 var heartTimer
-// var user_name = getCookie('web_name')//"shuang888"//"lei888"//getCookie('web_name')//"lei888"; getCookie('web_name')"shuang888"
-// var user_pwd = getCookie('web_pass')//"aabb1122"//"bbbaaa888"//getCookie('web_pass')//"aabb1122";getCookie('web_pass')"12345678"
-var user_name = 'cs009' //"shuang888"//"lei888"//getCookie('web_name')//"lei888"; getCookie('web_name')"shuang888"
-var user_pwd = 'aaabbb888' //"aabb1122"//"bbbaaa888"//getCookie('web_pass')//"aabb1122";getCookie('web_pass')"12345678"
+var user_name = getCookie('web_name')//"shuang888"//"lei888"//getCookie('web_name')//"lei888"; getCookie('web_name')"shuang888"
+var user_pwd = getCookie('web_pass')//"aabb1122"//"bbbaaa888"//getCookie('web_pass')//"aabb1122";getCookie('web_pass')"12345678"
+// var user_name = 'cs009' //"shuang888"//"lei888"//getCookie('web_name')//"lei888"; getCookie('web_name')"shuang888"
+// var user_pwd = 'aaabbb888' //"aabb1122"//"bbbaaa888"//getCookie('web_pass')//"aabb1122";getCookie('web_pass')"12345678"
 var userVo = {};//用户信息
 var callBackDic = {};
 var callFailDic = {}

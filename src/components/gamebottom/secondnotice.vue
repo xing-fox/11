@@ -14,46 +14,44 @@
     <div class="YMyIb"><iframe class="_3dWkl T4foZ"
               title="MiniLobby"
               scrolling="no"
-              id="iframe"></iframe></div> -->
+    id="iframe"></iframe></div>-->
   </div>
 </template>
 <script>
 /* eslint-disable */
 
 export default {
-  name: 'firstnotice',
+  name: "firstnotice",
   data () {
     return {
       tooltip: false,
-      page: 'GGBAR',
+      page: "GGBAR",
       img: "",
       userInfo: {
-        id: '',
+        id: "",
         name: "",
         nickname: "",
         money: "",
         pic: ""
-      },
+      }
     }
   },
   methods: {
-    showsetting: function () {
-      this.$store.dispatch('HistoryShow', "SETTING")
+    showsetting: function() {
+      this.$store.dispatch("HistoryShow", "SETTING");
     },
-    updateUser: function () {
-      var self = this
+    updateUser: function() {
+      var self = this;
       //更改用户信息
       this.global.sendMessage("member_info");
-      self.$set(self.$store.state.user, 'money', formatCurrency(credit))
+      self.$set(self.$store.state.user, "money", formatCurrency(credit));
       // self.$store.dispatch('SetuUser', self.$store.state.user)
-    },
+    }
   },
-  mounted () {
-    this.page = this.$store.state.page
+  mounted() {
+    this.page = this.$store.state.page;
   },
-  watch: {
-
-  },
+  watch: {}
 }
 </script>
 
