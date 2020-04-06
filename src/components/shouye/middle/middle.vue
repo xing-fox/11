@@ -1,29 +1,30 @@
 <template>
-  <div class="_15AXJ moddle-part"
-       @mouseover="enter"
-       @mouseleave="leave"
-       @click='enterGameHall'
-       role="presentation">
+  <div
+    class="_15AXJ moddle-part"
+    @mouseover="enter"
+    @mouseleave="leave"
+    @click="enterGameHall"
+    role="presentation"
+  >
     <div class="gHJIJ"></div>
-    <div class="_32V79 _38ffd"
-         :class="active? '_3rBzh' : '' "></div>
-    <div class="_2r6Vf"
-         :class="active? '_1ZjyC' : '' ">
+    <video class="_1DI70" autoplay="autoplay" loop preload muted>
+      <source src="../../../assets/f39da7b026.mp4" type="video/mp4">
+      <track default king="captions">
+    </video>
+    <div class="_32V79 _38ffd" :class="active? '_3rBzh' : '' "></div>
+    <div class="_2r6Vf" :class="active? '_1ZjyC' : '' ">
       <span class="_2avQ6">真人厅</span>
     </div>
     <div class="_27621">
-      <div class="_1T7iQ"
-           role="button"
-           tabindex="0"
-           v-show="active">
+      <div class="_1T7iQ" role="button" tabindex="0" v-show="active">
         <span class="_16jrb">立即进入</span>
       </div>
     </div>
-    <div class="_PSNi _77Szs _3zheu"
-         :class="active? '_3rBzh' : '' "></div>
+    <div class="_PSNi _77Szs _3zheu" :class="active? '_3rBzh' : '' "></div>
     <div class="_3Ds4v"></div>
   </div>
 </template>
+
 <script>
 export default {
   name: 'middle',
@@ -55,5 +56,3 @@ export default {
   }
 }
 </script>
-<style>
-</style>

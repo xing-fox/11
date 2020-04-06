@@ -7,15 +7,15 @@
           <!-- 循环 -->
           <template v-for="(desk,index) in desk_list">
             <div class="b3kwq "
-                 @click='enterGame(desk.id)'
-                 @dragstart="dragstart($event,desk.id,index)"
-                 @dragend="dragend"
-                 :class="desk.id ==diff_desk_list.qj_desk_list||desk.id ==diff_desk_list.sg_desk_list||desk.id ==diff_desk_list.dn_desk_list?'':desk.id==3&&chipnotice?'_2939e _1mF87':'_2939e'"
-                 v-show="active?(ba_desk_list.indexOf(desk.id) >-1?true:false):(ba_desk_list.indexOf(desk.id) ===-1?true:false)"
-                 :draggable="desk.id ==diff_desk_list.qj_desk_list||desk.id ==diff_desk_list.sg_desk_list||desk.id ==diff_desk_list.dn_desk_list?false:true"
-                 :key='index'
-                 role="button"
-                 :tabindex="index">
+              @click='enterGame(desk.id)'
+              @dragstart="dragstart($event,desk.id,index)"
+              @dragend="dragend"
+              :class="desk.id ==diff_desk_list.qj_desk_list||desk.id ==diff_desk_list.sg_desk_list||desk.id ==diff_desk_list.dn_desk_list?'':desk.id==3&&chipnotice?'_2939e _1mF87':'_2939e'"
+              v-show="active?(ba_desk_list.indexOf(desk.id) >-1?true:false):(ba_desk_list.indexOf(desk.id) ===-1?true:false)"
+              :draggable="desk.id == diff_desk_list.qj_desk_list || desk.id ==diff_desk_list.sg_desk_list || desk.id ==diff_desk_list.dn_desk_list ? false : true"
+              :key='index'
+              role="button"
+              :tabindex="index">
               <div class="_2qsud">
                 <div class="_2xSSt">
                   <div class="_2K7UY _3lqe6">
@@ -30,15 +30,15 @@
                       </div>
                     </div>
                   </div>
-
                   <div class="_2c97U Pryfz _2a6kj">
                     <div class="_2QqaK "
-                         v-if='desk_status[desk.id]&&desk_status[desk.id]["status"]!="1"?true:false'
-                         :class="(desk_status[desk.id]&&desk_status[desk.id]['status']=='2')?'_13ksF':'' "> {{(desk_status[desk.id]&&desk_status[desk.id]['text'])?desk_status[desk.id]['text']:''}}</div>
+                      v-if='desk_status[desk.id]&&desk_status[desk.id]["status"]!="1"?true:false'
+                      :class="(desk_status[desk.id]&&desk_status[desk.id]['status']=='2')?'_13ksF':'' "> {{(desk_status[desk.id]&&desk_status[desk.id]['text'])?desk_status[desk.id]['text']:''}}</div>
                     <div class="SxLiX">
                       <div class="_3fDKM _31RoA vevtA"
-                           :class="parseInt(desk_status[desk.id]['bet_interval'])<10?'_6NJkN':'' "
-                           v-if='desk_status[desk.id]&&desk_status[desk.id]["status"]=="1"?true:false'> {{(desk_status[desk.id]&&desk_status[desk.id]['bet_interval'])?desk_status[desk.id]['bet_interval']:''}}</div>
+                        :class="parseInt(desk_status[desk.id]['bet_interval'])<10?'_6NJkN':'' "
+                        v-if='desk_status[desk.id]&&desk_status[desk.id]["status"]=="1"?true:false'> {{(desk_status[desk.id]&&desk_status[desk.id]['bet_interval'])?desk_status[desk.id]['bet_interval']:''}}
+                      </div>
                     </div>
                   </div>
 
@@ -47,7 +47,6 @@
               <!-- 进入 -->
               <!-- canvas -->
               <div class="dvkHW">
-
                 <div class="_173V6"
                      v-if='curr_index==desk.id?true:false'>
                   <div class="J2meY">
@@ -228,12 +227,9 @@ export default {
         this.global.sendMessage('zixuan_exit_desk')
         this.$store.commit('ZIXUANTOGAME', id)
       }
-      console.log('要退单个桌子---', this.$store.state.page)
 
       // 在单个桌子的时候
       if (this.$store.state.page == "DOUNIU" || this.$store.state.page == "SANGONG" || this.$store.state.page == 'GAME' || this.$store.state.page == 'QUEJIU' || this.$store.state.page == 'SHAIBAOGAME' || this.$store.state.page == 'LUNPANGAME') {
-        console.log('要退单个桌子---', this.$store.state.ziXuanDesk[0])
-
         this.global.sendMessage('exit_desk', { desk_id: this.$store.state.ziXuanDesk[0] })
         this.$store.commit('ZIXUANTOGAME', id)
       }
@@ -244,17 +240,14 @@ export default {
     dragstart (event, desk_id, index) {
       this.drop_desk_id = desk_id
       this.drop_desk_index = index
-      // console.log('dragstart', event)
       event.dataTransfer.setData('desk_id', desk_id)
     },
     dragend (event) {
-      console.log('dragend', 'event')
       event.dataTransfer.clearData()
     },
     onRoadMap: function (vo) {
       if (this.curr_list_index.indexOf((vo.desk_id + '')) > -1) {
         initRoadMap(vo.history, vo.desk_id, 72, 58)
-        // console.log('露珠rightcanvass==' + JSON.stringify(vo))
       }
     },
     bottomDateTime: function () {
@@ -296,11 +289,9 @@ export default {
       if (index !== -1) {
         self.$set(self.desk_status[vo.desk_id], 'status', '1')
         self.$set(self.desk_status[vo.desk_id], 'bet_interval', vo.count_down)
-        // console.log('倒计时 onCountDown==' + JSON.stringify(vo))
       }
     },
     onClearBet: function (vo) {
-      console.log(vo, "-------------------洗牌")
       var self = this;
       var id = vo.desk_id;
 
@@ -318,7 +309,6 @@ export default {
       // }
       // self.$set(self.desk_status[id],'status' ,'3')
       // self.$set(self.desk_status[id],'text' ,'洗牌中')
-      // console.log("清理下注 洗牌===="+JSON.stringify(vo))
       // this.yuce_result[id] = {};
       // //露珠洗掉
       // drawCanvas(self.$refs['a_canvas'][i],self.$refs['b_canvas'][i],self.$refs['c_canvas'][i],self.$refs['d_canvas'][i],self.$refs['a_canvas1'][i],self.$refs['b_canvas1'][i],self.$refs['c_canvas1'][i],self.$refs['d_canvas1'][i],id,45,18)
@@ -333,15 +323,9 @@ export default {
           break
         }
       }
-      console.log('洗牌中', i)
       if (i === undefined) {
         return
       }
-      // if (!self.desk_status[id]) {
-      //   self.$set(self.desk_status, id, {})
-      // }
-      // self.$set(self.desk_status[i], 'status', '3')
-      // self.$set(self.desk_status[i], 'text', '洗牌中')
       drawCanvas(self.$refs['a_canvas'][i], self.$refs['b_canvas'][i], self.$refs['c_canvas'][i], self.$refs['d_canvas'][i], self.$refs['a_canvas1'][i], self.$refs['b_canvas1'][i], self.$refs['c_canvas1'][i], self.$refs['d_canvas1'][i], this.$store.state.changDesk.changedeskid, 29, 12)
     },
     setStatus: function (vo) {
@@ -360,7 +344,6 @@ export default {
         self.$set(self.desk_status[id], 'status', '3')
         self.$set(self.desk_status[id], 'text', '洗牌中')
         self.$set(self.desk_status[id], 'luzhu', 'false')
-        console.log('洗牌中')
         this.clearCanvas(id)
         //drawCanvas(self.$refs['a_canvas'][i], self.$refs['b_canvas'][i], self.$refs['c_canvas'][i], self.$refs['d_canvas'][i], self.$refs['a_canvas1'][i], self.$refs['b_canvas1'][i], self.$refs['c_canvas1'][i], self.$refs['d_canvas1'][i], this.$store.state.changDesk.changedeskid, 29, 12)
       } else {
@@ -370,7 +353,6 @@ export default {
       }
     },
     playGameMusic: function () {
-      console.log(this.game_music)
       if (!this.game_music) {
         this.myBGAudio.pause()
         return;
@@ -400,16 +382,15 @@ export default {
       this.playGameMusic();
     },
     '$store.state.changDesk.changedeskid': function () {
-      // console.log('changedeskid-----------', this.$store.state.changDesk.changedata)
       var self = this
-      this.desk_list.splice([this.drop_desk_index], 1, this.$store.state.changDesk.changedata)
-      this.curr_list_index.splice([this.drop_desk_index], 1, this.$store.state.changDesk.changedeskid)
-      this.global.sendMessage('count_down', { desk_id: this.$store.state.changDesk.changedeskid })
+      if (this.$store.state.changDesk.changedeskid !== undefined) {
+        this.desk_list.splice([this.drop_desk_index], 1, this.$store.state.changDesk.changedata)
+        this.curr_list_index.splice([this.drop_desk_index], 1, this.$store.state.changDesk.changedeskid)
+        this.global.sendMessage('count_down', { desk_id: this.$store.state.changDesk.changedeskid })
+      }
       for (var i = 0; i < self.$refs['a_canvas'].length; i++) {
-
         if (self.$refs['a_canvas'][i]['tabIndex'] === this.$store.state.changDesk.changedeskid) {
-          console.log('changedeskid-----------', self.$refs['a_canvas'][i]['tabIndex'], this.$store.state.changDesk.changedeskid)
-          drawCanvas(self.$refs['a_canvas'][i], self.$refs['b_canvas'][i], self.$refs['c_canvas'][i], self.$refs['d_canvas'][i], self.$refs['a_canvas1'][i], self.$refs['b_canvas1'][i], self.$refs['c_canvas1'][i], self.$refs['d_canvas1'][i], this.$store.state.changDesk.changedeskid, 29, 12)
+          // drawCanvas(self.$refs['a_canvas'][i], self.$refs['b_canvas'][i], self.$refs['c_canvas'][i], self.$refs['d_canvas'][i], self.$refs['a_canvas1'][i], self.$refs['b_canvas1'][i], self.$refs['c_canvas1'][i], self.$refs['d_canvas1'][i], this.$store.state.changDesk.changedeskid, 29, 12)
         }
       }
       this.$store.state.changDesk = {}
@@ -420,9 +401,8 @@ export default {
       }
       var self = this
 
-      console.log('split_desk', this.$store.state.split_desk)
-
       this.desk_list = JSON.parse(JSON.stringify(this.$store.state.split_desk))
+      this.curr_list_index = []
       for (var i = 0; i < this.desk_list.length; i++) {
         if (this.ba_desk_list.indexOf(parseInt(this.desk_list[i].id)) === -1) {
           this.other_list.push(this.desk_list[i])
@@ -441,7 +421,6 @@ export default {
       if (self.num == 0) {
         clearInterval(self.bottomDate_timer)
         this.bottomDate_timer = setInterval(self.bottomDateTime, 1000)
-        console.log('计时器', self.num)
       }
 
       this.curr_list = this.ba_list
@@ -466,12 +445,12 @@ export default {
     },
     '$store.state.luzhu': function () {
       this.onRoadMap(this.$store.state.luzhu)
-      // console.log('-----'+this.$store.state.split_desk)
     },
     '$store.state.onCountDown': function () { var self = this; self.onCountDown(self.$store.state.onCountDown) }
   }
 }
 </script>
+
 <style scoped>
 @-webkit-keyframes _2xo__ {
   0% {

@@ -18,9 +18,14 @@
         <span class="_16jrb">立即进入</span>
       </div>
     </div>
-    <div class="_PSNi _2N1wY "
-         :class="active? '_3rBzh' : '' "></div>
+    <div
+      class="_PSNi _2N1wY "
+      :class="active? '_3rBzh' : '' "></div>
     <div class="_3OX2I"></div>
+    <video class="_1DI70" autoplay="autoplay" loop preload muted>
+      <source src="../../../assets/07276b4970.mp4" type="video/mp4">
+      <track default king="captions">
+    </video>
     <div class="_1eTk-">
       <template v-for="imgone in imglist">
         <div class="_36TFn">
@@ -78,6 +83,14 @@ export default {
 }
 </script>
 <style>
+._1DI70 {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  -o-object-fit: fill;
+  object-fit: fill;
+}
 @-webkit-keyframes W9AFf {
   0% {
     background-position: 100% 0, 100% 100%, 0 100%, 0 0;

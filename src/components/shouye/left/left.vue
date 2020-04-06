@@ -3,18 +3,25 @@
        @mouseover="enter"
        @mouseleave="leave"
        role="presentation">
+    <video class="_1DI70" autoplay="autoplay" loop preload muted>
+      <source src="../../../assets/be218e87af.mp4" type="video/mp4">
+      <track default king="captions">
+    </video>
     <div class="_1KHYK"></div>
-    <div class="_32V79 _3pOou"
-         :class="active? '_3rBzh' : '' "></div>
-    <div class="_2r6Vf "
-         :class="active? 'm9yPc' : '' ">
+    <div
+      class="_32V79 _3pOou"
+      :class="active? '_3rBzh' : '' "></div>
+    <div
+      class="_2r6Vf "
+      :class="active? 'm9yPc' : '' ">
       <span class="_2avQ6">棋牌厅</span>
     </div>
     <div class="_27621">
-      <div class="_1T7iQ"
-           role="button"
-           tabindex="0"
-           v-show="active">
+      <div
+        class="_1T7iQ"
+        role="button"
+        tabindex="0"
+        v-show="active">
         <span class="_16jrb">立即进入</span>
       </div>
     </div>

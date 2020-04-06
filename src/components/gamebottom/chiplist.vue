@@ -196,7 +196,6 @@ export default {
     },
     onBetLimit: function (vo) {
       //限红可能是个数组
-
       var self = this;
       self.betlimit = vo
       self.betlimitdown = vo[0]['down'];

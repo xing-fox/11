@@ -2209,7 +2209,7 @@ export default {
       self.$set(self.desk_status, vo.desk_id, {})
       this.setStatus(vo)
       //clearInterval(self.bottotimer)
-      this.$store.dispatch('SetExchangeDesk',{changedeskid:this.gameId})
+      this.$store.dispatch('SetExchangeDesk',{changedeskid: this.gameId})
       this.$store.dispatch('SetZiXuanDesk', [this.gameId])
       this.playEffect('',false);
       this.music_Array =[];

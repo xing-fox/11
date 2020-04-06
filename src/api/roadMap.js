@@ -303,18 +303,16 @@ export function initRoadMap (_history, id, a_canvas_h, b_canvas_h) {
           y   在画布上放置图像的 y 坐标位置。
           width   可选。要使用的图像的宽度。（伸展或缩小图像）
           height  可选。要使用的图像的高度。（伸展或缩小图像）*/
-  var icon_size = 84;//图标大小
-  var table_size;//表格大小
+  var icon_size = 84; // 图标大小
+  var table_size; // 表格大小
   var history = _history.slice(0, _history.length);
   table_size = a_canvas_h / 6;//表格大小
-  //console.log("id-------------------------", id)
   if (history != null || history != undefined) {
     var col = 0;
     var row = 0;
     var n = 0;
     var jsonarray = [];
     for (var i = 0; i < history.length; i++) {
-
       var v = history[i];
       if (v == 1) {
         v = 19;
@@ -454,7 +452,6 @@ export function initRoadMap (_history, id, a_canvas_h, b_canvas_h) {
         };
         jsonarray.push(arr);
       }
-
     }
     drawImage(a_contexts[id], jsonarray, table_size, icon_size, roadmap(history, 29, id), b_contexts[id], c_contexts[id], d_contexts[id], b_canvas_h, id);
   }
@@ -629,7 +626,6 @@ function drawImage (a_context, jsonarray, table_size, icon_size, roadmaps, b_con
 
     }
 
-
     var c = 0;
     var r = 0;
     var LZtype = 0;
@@ -658,8 +654,8 @@ function drawImage (a_context, jsonarray, table_size, icon_size, roadmaps, b_con
     drawSmallRoadMap(c_context, tab_size_small, icon_size, roadmap(solid_array, 10, id), 1);
     drawSmallRoadMap(d_context, tab_size_small, icon_size, roadmap(slash_array, 10, id), 2);
   }
-
 }
+
 //画小露珠
 function drawSmallRoadMap (context, table_size, icon_size, roadmap, type) {
   var drawing_size = table_size; //画图大小
@@ -698,7 +694,6 @@ function drawSmallRoadMap (context, table_size, icon_size, roadmap, type) {
         };
         obj = json[LZtype].coor;
         context.drawImage(img, obj.x, obj.y, icon_size, icon_size, c * drawing_size, r * drawing_size, drawing_size, drawing_size);
-
       }
     }
   }

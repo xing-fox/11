@@ -1887,7 +1887,7 @@ export default {
           var changedata = this.mid_desk_List[self.changeindex];
           this.mid_desk_List.splice(self.changeindex,1,vo)
           this.$store.dispatch('SetZiXuanDesk',this.mid_desk)
-          this.$store.dispatch('SetExchangeDesk',{changedeskid: this.changedesk,changedata:changedata})
+          this.$store.dispatch('SetExchangeDesk', {changedeskid: this.changedesk, changedata:changedata})
           console.log('onDeskInfo----单个', this.mid_desk_List)
          
           //换桌子重新画
@@ -2517,7 +2517,6 @@ export default {
       this.$store.dispatch('SetZiXuanDesk', vo.desk_list)
     },
     onRoadMap:function(vo){
-      
       if(this.mid_desk.indexOf(parseInt(vo.desk_id))>-1){
         // console.log("this.mid_desk.---------------------------",this.mid_desk,vo)
         this.c_history_ary[vo.desk_id] = vo.history
@@ -2660,6 +2659,7 @@ export default {
       //console.log('-----'+this.$store.state.split_desk)
     },
     '$store.state.luzhu':function(){
+      console.log(this.$store.state.luzhu)
       this.onRoadMap(this.$store.state.luzhu)
       //console.log('-----'+this.$store.state.split_desk)
     },
